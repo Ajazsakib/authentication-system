@@ -1,29 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,500;0,700;0,900;1,100;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <title>Authentication System</title>
-</head>
-
-<body>
-
+<%- include('_header.ejs') %>
     <div class="main-section">
         <div class="reset-password">
-            <a href="#">Reset Password</a>
+            <a href="/user/resetPassword">Reset Password</a>
         </div>
         <div class="logout">
-            <a href="#">Logout</a>
+            <a href="/user/logout">Logout</a>
         </div>
     </div>
 
-</body>
-
-</html>
+    <%- include('_footer.ejs') %>

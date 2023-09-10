@@ -1,29 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/css/style.css" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&family=Roboto:ital,wght@0,100;0,500;0,700;0,900;1,100;1,500;1,700;1,900&display=swap"
-        rel="stylesheet">
-    <title>Authentication System</title>
-</head>
-
-<body>
+<%- include('_header.ejs') %>
     <div class="form-section">
         <div class="main-heading">
             <h1>Login</h1>
+            <h2 style="color: #c20302; margin: 20px 0;">
+                <% if(error) {%>
+                    <%= error%>
+                        <%}%>
+            </h2>
         </div>
         <form action="/user/createSession" method="POST">
             <div class="form-box">
 
                 <div class="form-group">
-                    <label>Username</label>
-                    <input type="text" class="form-control" name="username" required />
+                    <label>Email</label>
+                    <input type="text" class="form-control" name="email" required />
                 </div>
                 <div class="form-group">
                     <label>Password</label>
@@ -33,12 +23,26 @@
                 <div class="form-group">
                     <input type="submit" class="btn btn-submit" value="Login" />
                 </div>
+                <div class="form-group">
+                    <a href="/user/auth/google">Sign in with google</a>
+                </div>
                 <div class="form-group text-center">
                     <a href="/user/register">Back To Register</a>
                 </div>
             </div>
         </form>
     </div>
-</body>
 
-</html>
+    <script>
+
+
+        function onSignIn(googleUser) {
+            var profile = googleUser.getBasicProfile();
+            console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+            console.log('Name: ' + profile.getName());
+            console.log('Image URL: ' + profile.getImageUrl());
+            console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+        }
+    </script>
+
+    <%- include('_footer.ejs') %>
